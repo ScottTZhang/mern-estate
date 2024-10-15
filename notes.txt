@@ -1,0 +1,48 @@
+1. Install React.js and Tailwind css
+2. Terminal: npm create vite@latest client (folder name) -> React ->JS+SWC (fast version)
+3. npm i -- installed the package.json
+4. Install Tailwind CSS from viate: https://tailwindcss.com/docs/guides/vite
+5. Update tailwind.config.js
+6. Run your build process with npm run dev: npm run dev
+7. Delete App.css, react.svg
+
+Search extension and install "ES7 + React/Redux/React-Native snipets", "auto rename tag", "Conso ninja", Prettier, Tailwin CSS InntelliSense in Visual Studio
+
+terminal: npm run dev
+
+git init, git add ., git commit -m "install react js and tailwind css, first template"
+
+Go to github.com to create repo, and push the commit.
+https://www.geeksforgeeks.org/how-to-authenticate-git-push-with-github-using-a-token/#
+
+[]Create pages and routes:
+use "rfc" to create React functoinal component
+
+npm i react-router-dom, for routing
+In App.jsx, import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+"Source Control", click + at "staged changes" line, enter message and Commit (commit and push)
+
+[]Create header component
+add the attr className='...' to style the tag
+flex flex-wrap to adjust to mobile.
+mx-auto, to make the div center
+p-3, add padding
+bg-transparent, remove backgroucd color
+npm i react-icons
+flex items-center, make search and icon in a line
+w-24 sm:w-64, means w-24 for mobile, after mobile, use w-64
+
+import {Link} from 'react-router-dom';
+Bring from one page to another page without refreshing.
+
+[]Create and run server
+In root folder:
+npm init -y 
+npm i express
+npm i nodemon, to automatic restart on code change
+
+"dev": "nodemon api/index.js",
+"start": "node api/index.js", for deploy to run backend.
+You don't use nodemon in production
+Then command: npm run dev
