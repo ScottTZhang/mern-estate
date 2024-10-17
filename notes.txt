@@ -63,3 +63,40 @@ dotenv.config();
 new mongoose.Schema(), to create a table column
 timestamps, to automatic add time_created, time_updated
 const User = mongoose.model('User', userSchema);
+
+[] Create a test API route
+in index.js file
+app.get('/', (req, res)==>{})
+req is request from browser client
+res is response from server
+In browser, the port should match the server port (3000), such as "http://localhost:3000/"
+Not the client page, http://localhost:5173
+
+route folder contains the proxy between server and client
+user.route.js: 
+import { test } from '../controllers/user.controller.js';  //must add ".js" at the end
+router.get('/test', (req, res) => {
+  res.json({
+    message: 'hello world'
+  })   // bring (req, res) function to user.controller.js
+});
+index.js:
+app.use('/api/user', userRouter);
+user.controller.js:
+export const test = (req, res) => {...};
+Browser: http://localhost:3000/api/user/test
+
+When importing from a named export, e.g.
+// my-module.js
+// ... code ..
+export { Something1, Something2}
+You can alias the import using as:
+import { Something1 as MySomething } from "my-module.js"
+
+
+For importing default exports, e.g.
+// my-module.js
+// ... code ..
+export default Something
+You can alias the import directly:
+import MySomething from "my-module.js"
