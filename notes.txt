@@ -46,3 +46,20 @@ npm i nodemon, to automatic restart on code change
 "start": "node api/index.js", for deploy to run backend.
 You don't use nodemon in production
 Then command: npm run dev
+
+[]Connect to database
+install mongoose: npm i mongoose
+import mongoose
+connect mongoose
+cloud.mongodb.com:create account
+connect to cloud mongodb
+
+use .env to hide db info when pushing
+npm i dotenv
+import dotenv from 'dotenv';
+dotenv.config();
+
+[]Create user model
+new mongoose.Schema(), to create a table column
+timestamps, to automatic add time_created, time_updated
+const User = mongoose.model('User', userSchema);
