@@ -100,3 +100,23 @@ For importing default exports, e.g.
 export default Something
 You can alias the import directly:
 import MySomething from "my-module.js"
+
+[] Create sign up API route
+Create auth.route.js, export it (router.post("/signup", signup);)
+Create auth.controller.js
+In index.js, import auth.route.js, add app.use('/api/auth', authRouter);
+
+Install "Insomnia api test" app -> create Request Collection-> create folder "auth" -> create "http request" sign up (POST)
+URI: localhost:3000/api/auth/signup
+create a test json {}, click SEND
+terminal can see the "undefined" obj. Todisplay json obj, index.js add app.use(express.json());
+
+auth.controller.js:
+async ... await, to wait for the line execution finished
+
+hash the password: npm i bcryptjs
+In auth.controller.js: 
+import bcryptjs from 'bcryptjs';
+const hashedPassword = bcryptjs.hashSync(password, 10);
+
+Click database name on https://cloud.mongodb.com/ to see updated results
