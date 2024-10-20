@@ -121,9 +121,14 @@ const hashedPassword = bcryptjs.hashSync(password, 10);
 
 Click database name on https://cloud.mongodb.com/ to see updated results
 
-[10/20/24]Middleware and function to handle possible errors
+[10/20/24] Middleware and function to handle possible errors
 In index.js: app.use((err, req, res, next) => {});
 In auth.controller.js: const signup = async (req, res, next) => {}
 
 Create error.js middleware
 In auth.controller.js: next(errorHandler(550, 'Error from the function'));
+
+[] Create sign up page
+In SignUp.jsx:
+import {Link} from 'react-router-dom';
+<Link to={"/sign-in"}><span className='text-blue-700'>Sign in</span></Link>
