@@ -139,3 +139,7 @@ add proxy in vite.config.js, to avoid adding "http://localhost:3000" each time.
 In SignUp.jsx:
 import {Link, useNavigate} from 'react-router-dom'; //to navigate to sign up page after successful sign up
 
+[] Create sign in API route
+Create export const signin in controller.js -> JSON Web Token (JWT), to create a token
+Add router.post("/signin", signin); in route.js
+Test localhost:3000/api/auth/signin in Insomnia
