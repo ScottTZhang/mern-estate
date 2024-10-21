@@ -128,7 +128,14 @@ In auth.controller.js: const signup = async (req, res, next) => {}
 Create error.js middleware
 In auth.controller.js: next(errorHandler(550, 'Error from the function'));
 
-[] Create sign up page
+[] Complete sign up page UI
 In SignUp.jsx:
 import {Link} from 'react-router-dom';
 <Link to={"/sign-in"}><span className='text-blue-700'>Sign in</span></Link>
+
+[] Complete sign update functionality
+add proxy in vite.config.js, to avoid adding "http://localhost:3000" each time.
+
+In SignUp.jsx:
+import {Link, useNavigate} from 'react-router-dom'; //to navigate to sign up page after successful sign up
+
