@@ -38,10 +38,11 @@ export const signin = async(req, res, next) => {
     const token = jwt.sign({id: validUser._id}, process.env.JWT_SECRET);
     const {password: pass, ...rest} = validUser._doc; //deconstructure
     res
-      .cookie('acces_token', token, {httpOnly: true, expires: new Date(Date.now() + 24 + 60 * 60 * 30)})
+      .cookie('access_token', token, {httpOnly: true, expires: new Date(Date.now() + 24 + 60 * 60 * 30)})
       .status(200)
       .json(rest); //need to remove password
-
+      //httpOnly: true -- to make cookie safer
+      //access_token -- name of the token
   } catch (error) {
     next(error); //will use next() in index.js middleware app.use((err, req, res, next) =>{})
   }
