@@ -146,3 +146,15 @@ Test localhost:3000/api/auth/signin in Insomnia
 
 [] Complete sign in page functionality
 Browser -> Inspect -> Application -> Cookies
+
+[10/23/24] Add redux toolkit
+To have user data in different places in apps
+https://redux-toolkit.js.org/tutorials/quick-start
+npm install @reduxjs/toolkit react-redux, install in client side
+Create store.js
+Update main.jsx
+Create userSlice.js
+Update store.js: reducer: {user: userReducer}
+Update signIn.jsx
+Chrome - Inspect - redux tool - 'State' button
+Problem: when refresh the page, user becomes null.

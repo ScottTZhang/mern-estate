@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'; // to dispatch the functions
+import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice.js';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
   
+  //const [error, setError] = useState(null);
+  //const [loading, setLoading] = useState(false);
+  const {loading, error} = useSelector((state) => state.user); //user is the name: 'user' in userSlice
+  
+  
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -20,7 +27,8 @@ export default function SignIn() {
     e.preventDefault();
 
     try {
-      setLoading(true);
+      //setLoading(true);
+      dispatch(signInStart());
       //to prevent refreshing the page when submit the form
 
       //add proxy in vite.config.js
@@ -38,17 +46,22 @@ export default function SignIn() {
       //console.log(data);
 
       if (data.success === false) { //success if not defined from backend
-        setError(data.message);
-        setLoading(false);
+        //setError(data.message);
+        //setLoading(false);
+        dispatch(signInFailure(data.message));
         return;
       }
-      setLoading(false);
-      setError(null);
+      
+      //setLoading(false);
+      //setError(null);
+      dispatch(signInSuccess(data));
+
       navigate('/');
       //console.log(formData);
     } catch (error) {
-      setLoading(false);
-      setError(error.message);
+      //setLoading(false);
+      //setError(error.message);
+      dispatch(signInFailure(error.message));
     }
   };
   return (
