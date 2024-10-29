@@ -157,4 +157,47 @@ Create userSlice.js
 Update store.js: reducer: {user: userReducer}
 Update signIn.jsx
 Chrome - Inspect - redux tool - 'State' button
-Problem: when refresh the page, user becomes null.
+Problem: when refresh the page, Redux - Actions - State - Tree: user becomes null.
+
+[10/24/24]
+https://redux.js.org/tutorials/fundamentals/part-1-overview
+Redux is a pattern and library for managing and updating global application state, where the UI triggers events called "actions" to describe what happened, and separate update logic called "reducers" updates the state in response.
+
+Redux is more useful when:
+You have large amounts of application state that are needed in many places in the app
+The app state is updated frequently over time
+The logic to update that state may be complex
+The app has a medium or large-sized codebase, and might be worked on by many people
+(Redux is better in state management. Others like Context, useReducer + useContext, GraphQL, Appllo client)
+
+What Redux can do:
+Caching state from a server
+UI state
+other complex data management on the client
+
+(Redux):
+The center of every Redux application is the store.
+The only way to cause an update to the state is to create a plain action object that describes "something that happened in the application", and then dispatch the action to the store to tell it what happened.
+When an action is dispatched, the store runs the root reducer function. Action objects always have a type field, which is a string you provide that acts as a unique name for the action.
+Finally, the store notifies subscribers that the state has been updated so the UI can be updated with the new data.
+A reducer is a function that receives the current state and an action object, decides how to update the state if necessary, and returns the new state: (state, action) => newState. You can think of a reducer as an event listener which handles events based on the received action (event) type.
+
+react-redux:
+store.js:
+import { configureStore } from '@reduxjs/toolkit';
+-- Create a Redux store with configureStore. (It uses the low-level Redux core createStore method internally, but wraps that to provide good defaults to the store setup for a better development experience.)
+
+main.jsx:
+import { store } from './redux/store.js'
+import { Provider } from 'react-redux'; 
+-- Provide the Redux store to the React application components.
+
+userSlice.js:
+import { createSlice } from "@reduxjs/toolkit";
+-- Create a Redux "slice" reducer with createSlice: Call createSlice with a string name, an initial state, and named reducer functions.
+
+SignIn.jsx:
+import { useDispatch, useSelector } from 'react-redux';
+import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice.js';
+-- Read data from the store with useSelector hook.
+-- Get the dispatch function with the useDispatch hook, and dispatch actions as needed
