@@ -201,3 +201,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice.js';
 -- Read data from the store with useSelector hook.
 -- Get the dispatch function with the useDispatch hook, and dispatch actions as needed
+
+[10/29/24] Add Redux persist
+npm i redux-persist
+Update store.js
+Update main.jsx
+Chrome - Inspect - Application - Local storage - http://localhost: persist:root. Right click - Delete. - Redux - State: user becomes null.
