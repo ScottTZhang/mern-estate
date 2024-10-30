@@ -207,3 +207,28 @@ npm i redux-persist
 Update store.js
 Update main.jsx
 Chrome - Inspect - Application - Local storage - http://localhost: persist:root. Right click - Delete. - Redux - State: user becomes null.
+After sign in, the user is not null anymore.
+
+[10/30/14] Add Google OAuth functionality
+[]
+Create OAuth.jsx
+Update SignIn.jsx, SignUp.jsx
+
+[]
+firebase.google.com -> go to console -> Create a project -> Disable "Enable Google Analytics..." -> Create project
+</> web icon -> Register app
+npm install firebase in client folder
+Create firebase.js. Move APIKey to .env
+Firebase page -> Build -> Authentication -> Provider: Google: Enable -> Fill "Estate App" in Public-facing name.
+Google Authentication is ready.
+
+[]
+Update OAuth.jsx:
+  const provider = new GoogleAuthProvider();
+  const auth = getAuth(app);
+  const result = await signInWithPopup(auth, provider);
+Update auth.route.js
+Update auth.controller.js
+
+[]
+Chrome Inspect -> Network -> Reponse, to see auth result
