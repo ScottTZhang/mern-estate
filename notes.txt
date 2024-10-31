@@ -232,3 +232,13 @@ Update auth.controller.js
 
 []
 Chrome Inspect -> Network -> Reponse, to see auth result
+
+[10/31/24] Update header and make profile page private
+Update header.jsx
+  const currentUser = useSelector(state => state.user.user.currentUser); -- to get the correct currentUser object
+img alt attribute is used to add alternative text to an image.
+img className='object-cover'
+Create PrivateRoute.jsx
+  return currentUser ? <Outlet /> : <Navigate to='/sign-in' />;
+
+Chrome - Inspect - Application - local storage - delete and refresh, to see the redirect to sign-in

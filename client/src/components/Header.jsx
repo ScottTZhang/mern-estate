@@ -1,7 +1,14 @@
 import {FaSearch} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 export default function Header() {
+  //state.user comes from the userSlice.js name:'user'
+  const currentUser = useSelector(state => state.user.user.currentUser); 
+  //The useSelector hook connects a component to the Redux store and returns a part of the state when given a function argument.
+  //useSelector(state => state.user.user.currentUser) is a React-Redux hook that returns the user.user.currentUser part of the state
+  //console.log(currentUser);
+  
   return (
     <header className='bg-slate-200 shadow-dm'>
     <div className='flex justify-between items-center max-w-6xl mx-auto p-2'>
@@ -22,8 +29,14 @@ export default function Header() {
         <Link to='/about'>
         <li className='hidden sm:inline text-slate-700 hover:underline'>About</li>
         </Link>
-        <Link to='/sign-in'>
-        <li className='text-slate-700 hover:underline'> Sign in</li>
+        <Link to='/profile'>
+        {currentUser ? (
+          <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt='profile' />
+         ) : (
+          <li className='text-slate-700 hover:underline'>
+            Sign in
+          </li>
+          )}
         </Link>
       </ul>
       </div>
