@@ -246,3 +246,12 @@ Chrome - Inspect - Application - local storage - delete and refresh, to see the 
 [11/02/24] Complete profile UI
 Update Pofile.jsx:
 className=cursor-pointer
+
+[] Complete image upload functionality
+Update Profile.jsx:
+import { useRef } from "react";
+Add Storage on Firebase - Rules: request.resource.size < 2 * 1024 * 1024 (size < 2 MB)
+const [file, setFile] = useState(undefined);
+onChange={(e)=>setFile(e.target.files[0])...}
+Add useEffect;
+issue: When refresh the page, it will go back again.
