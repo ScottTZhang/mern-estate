@@ -242,3 +242,7 @@ Create PrivateRoute.jsx
   return currentUser ? <Outlet /> : <Navigate to='/sign-in' />;
 
 Chrome - Inspect - Application - local storage - delete and refresh, to see the redirect to sign-in
+
+[11/02/24] Complete profile UI
+Update Pofile.jsx:
+className=cursor-pointer
