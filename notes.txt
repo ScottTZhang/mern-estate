@@ -255,3 +255,10 @@ const [file, setFile] = useState(undefined);
 onChange={(e)=>setFile(e.target.files[0])...}
 Add useEffect;
 issue: When refresh the page, it will go back again.
+
+[11/03/2024] Create update user API route
+Update user.route.js
+Update user.controller.js
+Create verifyUser.js
+npm i cookie-parser, in MERN-estate folder
+import cookieParser from 'cookie-parser'; //in index.js
