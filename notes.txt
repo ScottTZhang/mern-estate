@@ -262,3 +262,9 @@ Update user.controller.js
 Create verifyUser.js
 npm i cookie-parser, in MERN-estate folder
 import cookieParser from 'cookie-parser'; //in index.js
+
+[11/5/24] Complete update user functionality
+Update Profile.jsx: handleChange, handleSubmit
+Update userSlice.js: add reducers. 
+Update Profile.jsx: import useDispatch , const dispatch = useDispatch(), 
+    e.preventDefault(); //must include ()

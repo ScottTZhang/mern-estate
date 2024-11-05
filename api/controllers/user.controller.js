@@ -13,6 +13,8 @@ export const updateUser = async (req, res, next) => {
     return next(errorHandler(401, "You can only update you own account."));
 
   try {
+    //console.log(req.user.id);
+    
     if (req.body.password) {
       const salt = bcrypt.genSaltSync(10); //10 is hashing rounds
       const hashedPassword = bcrypt.hashSync(req.body.password, salt);
@@ -32,8 +34,11 @@ export const updateUser = async (req, res, next) => {
       { new: true }
     ); //{new: true}, to save the updated info as the new info for the page.
 
+    //console.log(updateUser);
     const { password, ...rest } = updateUser._doc;
-
+    
+    //console.log(rest);
+    
     res.status(200).json(rest);
   } catch (error) {
     next(error);

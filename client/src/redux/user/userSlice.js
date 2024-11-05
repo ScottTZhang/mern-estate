@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   currentUser: null,
   error: null,
-  loading: false
+  loading: false,
 };
 
 //The createSlice() function in Redux Toolkit returns an object containing a slice reducer and action creators.
@@ -12,7 +12,7 @@ const initialState = {
 //name: A string name for this slice of state. Generated action type constants will use this as a prefix.
 //reducers: An object containing Redux "case reducer" functions (functions intended to handle a specific action type, equivalent to a single case statement in a switch). The keys in the object will be used to generate string action type constants. Also, if any other part of the application happens to dispatch an action with the exact same type string, the corresponding reducer will be run. Therefore, you should give the functions descriptive names.
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
     signInStart: (state) => {
@@ -31,11 +31,32 @@ const userSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
-    default: () => {return state;}
-  }
+    updateUserStart: (state) => {
+      state.loading = true;
+    },
+    updateUserSuccess: (state, action) => {
+      state.currentUser = action.payload; //data we get
+      state.loading = false;
+      state.error = null;
+    },
+    updateUserFailure: (state, action) => {
+      state.error = action.payload;
+      state.loading = false;
+    },
+    default: () => {
+      return state;
+    },
+  },
 });
 
 //createSlice() returns an object containing a slice reducer (todosSlice.reducer) and corresponding auto-generated action creators (todosSlice.actions).
 //The action creators are automatically generated and named for each case reducer. The action.type values they return are a combination of the slice name ('todos') and the action name ('addTodo') separated by a forward slash (todos/addTodo).
-export const {signInStart, signInSuccess, signInFailure} = userSlice.actions; // Action creators are generated for each case reducer function
+export const {
+  signInStart,
+  signInSuccess,
+  signInFailure,
+  updateUserFailure,
+  updateUserSuccess,
+  updateUserStart,
+} = userSlice.actions; // Action creators are generated for each case reducer function
 export default userSlice.reducer; //is a code snippet that exports the reducer function for a slice in Redux Toolkit
