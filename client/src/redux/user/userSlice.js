@@ -43,6 +43,18 @@ const userSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
+    deleteUserStart: (state) => {
+      state.loading = true;
+    },
+    deleteUserSuccess: (state) => {
+      state.currentUser = null;
+      state.loading = false;
+      state.error = null;
+    },
+    deleteUserFailure: (state, action) => {
+      state.error = action.payload;
+      state.loading = false;
+    },
     default: () => {
       return state;
     },
@@ -58,5 +70,8 @@ export const {
   updateUserFailure,
   updateUserSuccess,
   updateUserStart,
+  deleteUserFailure,
+  deleteUserStart,
+  deleteUserSuccess
 } = userSlice.actions; // Action creators are generated for each case reducer function
 export default userSlice.reducer; //is a code snippet that exports the reducer function for a slice in Redux Toolkit

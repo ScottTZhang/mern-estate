@@ -12,6 +12,9 @@ import {
   updateUserFailure,
   updateUserSuccess,
   updateUserStart,
+  deleteUserFailure,
+  deleteUserStart,
+  deleteUserSuccess
 } from "../redux/user/userSlice.js";
 import { useDispatch } from "react-redux";
 
@@ -81,7 +84,7 @@ export default function Profile() {
     try {
       //Need to add reducers, then dispatch
       dispatch(updateUserStart());
-      console.log(currentUser._id);
+      //console.log(currentUser._id);
 
       const res = await fetch(`/api/user/update/${currentUser._id}`, {
         method: "POST",
@@ -103,6 +106,23 @@ export default function Profile() {
     } catch (error) {
       //Need to add reducers, then dispatch
       dispatch(updateUserFailure(error.message));
+    }
+  };
+
+  const handleDeleteUser = async () => {
+    try {
+      dispatch(deleteUserStart());
+      const res = await fetch(`/api/user/delete/${currentUser._id}`,{
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
     }
   };
   //Firebase Storage Rules:
@@ -169,11 +189,11 @@ export default function Profile() {
         </button>
       </form>
       <div className="flex justify-between mt-5">
-        <span className="text-red-700 cursor-pointer">Delete Account</span>
+        <span onClick={handleDeleteUser} className="text-red-700 cursor-pointer">Delete Account</span>
         <span className="text-red-700 cursor-pointer">Sign Out</span>
       </div>
       <p className="text-red-700 mt-5">{error ? error : ""}</p>
-      <p className="text-green-700 mt-5">{updateSuccess ? "Success" : ""}</p>
+      <p className="text-green-700 mt-5">{updateSuccess ? "Updated successully" : ""}</p>
     </div>
   );
 }

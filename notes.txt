@@ -268,3 +268,9 @@ Update Profile.jsx: handleChange, handleSubmit
 Update userSlice.js: add reducers. 
 Update Profile.jsx: import useDispatch , const dispatch = useDispatch(), 
     e.preventDefault(); //must include ()
+
+[11/17/24] Add delete user functionality
+Add user.route.js
+Update user.controller.js
+Update Profile.jsx
+Update userSlice.js
