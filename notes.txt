@@ -274,3 +274,9 @@ Add user.route.js
 Update user.controller.js
 Update Profile.jsx
 Update userSlice.js
+
+[] Add sign out functionality
+Add auth.route.js
+Update auth.controller.js
+Update Profile.jsx
+Update userSlice.js
