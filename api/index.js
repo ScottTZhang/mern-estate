@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from './routes/user.route.js'; //becase router is a default export in user.route.js
 import authRouter from './routes/auth.route.js';
+import listingRouter from './routes/listing.route.js';
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -31,6 +32,8 @@ app.use('/api/user', userRouter);
 
 app.use('/api/auth', authRouter);
 //Now server can get information from the cookie
+
+app.use('/api/listing', listingRouter);
 
 //middleware:
 //next: go to the next middleware

@@ -280,3 +280,10 @@ Add auth.route.js
 Update auth.controller.js
 Update Profile.jsx
 Update userSlice.js
+
+[12/03/24] Add create listing API route
+Update api -> index.js
+Create listing.route.js
+Create listing.controller.js
+Create listing.model.js
+Test in Insomnia: POST: localhost:3000/api/listing/create
