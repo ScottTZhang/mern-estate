@@ -287,3 +287,8 @@ Create listing.route.js
 Create listing.controller.js
 Create listing.model.js
 Test in Insomnia: POST: localhost:3000/api/listing/create
+
+[12/16/24] Complete create listing page UI
+Update profile.jsx: Link tag
+Update App.jsx
+Create CreateListing.jsx
