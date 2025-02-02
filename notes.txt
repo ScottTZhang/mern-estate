@@ -292,3 +292,15 @@ Test in Insomnia: POST: localhost:3000/api/listing/create
 Update profile.jsx: Link tag
 Update App.jsx
 Create CreateListing.jsx
+
+[02/01/25] Complete upload listing images functionality
+create useState setFiles
+create func handleImageSubmit
+create func storeImage
+create useState setFormData
+add snapshot
+add useState setImageUploadError
+Add list for uploaded image using map function
+className=object-contain
+use callback function () => for handleRemoveImage
+add uploading useState
