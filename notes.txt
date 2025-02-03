@@ -329,3 +329,6 @@ Redirect after creating the listing:
 import {useNavigate} from 'react-router-dom';
   const navigate = useNavigate();
 navigate(`/listing/${data._id}`);
+
+[2/3/25] Create get user listing API route
+Before, downloading listing, upate userRef in Insomnia create listing link
