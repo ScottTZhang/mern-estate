@@ -304,3 +304,28 @@ Add list for uploaded image using map function
 className=object-contain
 use callback function () => for handleRemoveImage
 add uploading useState
+
+[02/02/25] Complete create listing page functionality
+handleChange: for nor refresh and save updates in settings
+
+checked={formData.type === 'sale'}
+To make multiple choise to be single choice: checkbox id: 'value1',
+e.gerget.id=='value1' means it is checked. 
+in tag, checked={formData.type==='value1'}
+
+[e.target.id]=e.target.checked
+need to add [], means the id without '', such as bedrooms which is a variable
+if not add [], it means 'bedrooms' which is a string value.
+
+Need userRef:
+import { useSelector } from "react-redux";
+  const {currentUser} = useSelector(state => state.user);
+userRef: currentUser._id
+
+formData name imageURLs must match listing.models.js names
++formData.regularPrice: add '+" to convert to number
+
+Redirect after creating the listing:
+import {useNavigate} from 'react-router-dom';
+  const navigate = useNavigate();
+navigate(`/listing/${data._id}`);
