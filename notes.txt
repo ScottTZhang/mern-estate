@@ -332,3 +332,5 @@ navigate(`/listing/${data._id}`);
 
 [2/3/25] Create get user listing API route
 Before, downloading listing, upate userRef in Insomnia create listing link
+
+[2/3/25] Complete show user listings functionality
