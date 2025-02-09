@@ -385,3 +385,14 @@ useParams(), to have the id from the URL. To initialize, const params = useParam
 style={{ background: `url(${url}) center no-repeat`, backgroundSize: 'cover'}}
 url(...) is a function to use the ${url} as actual link.
 style={...} treats ... as js language. So the inner {} is like a js object.
+
+[2/9/25] Complete listing page (Video is edited and cut)
+
+navigator.clipboard.writeText(window.location.href); //Copy the current page URL to clipboard.
+window.location.href: current page's URL
+navigator: global object of the browser
+navigator.clipboard: browser's clipboard
+
+The best way to format numbers in JavaScript is to use the toLocaleString() method. This method exists on the Number object and will return a string with the number formatted with commas.
+
+flex-wrap: to make the icon change line
