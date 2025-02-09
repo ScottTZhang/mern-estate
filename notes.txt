@@ -343,6 +343,11 @@ Updated Profile.jsx:
 //Use userListings as parameter
 setUserListings((prev) => prev.filter((userListings) => userListings._id !== listingId));
 
+.filter is a function works on an array. 
+const newArray = array.filter(callbackFunction);
+callbackFunction works on each element in the array. If return true, the element is remained; if false, the element is removed, in the newArray.
+So (userListings) => userListings._id !== listingId is the callbackFunction. But the format is: parameter => expression (参数 => 表达式)
+
 Insomnia:
 DELETE: localhost:3000/api/listing/delete/:id
 
@@ -358,3 +363,13 @@ BODY:choose JSON
   "name": "test222222"
   ...
 }
+
+[2/8/25] Complate update listing functionality
+1. Create page -> UpdateListing.jsx
+2. Add the page to App.jsx
+3. Update Profile.jsx: add <Link>
+4. Update UpdateListing.jsx, copied from CreateListing
+useParams(), to have the id from the URL. To initialize, const params = useParams();
+5. Update listing.route.js: router.get('/get/:id', getListing);
+6. Update listing.controller.js: const listing = await Listing.findById(req.params.id);
+(7. Test in Insomnia: GET:localhost:3000/api/listing/get/:id)
