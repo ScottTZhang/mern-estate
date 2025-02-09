@@ -396,3 +396,12 @@ navigator.clipboard: browser's clipboard
 The best way to format numbers in JavaScript is to use the toLocaleString() method. This method exists on the Number object and will return a string with the number formatted with commas.
 
 flex-wrap: to make the icon change line
+
+[2/9/25] Add Contact Landlord functionality to the listing page
+1. Create component -> Contact.jsx: create a attribute called listing. Pass {listing} to this attribute.
+2. Update user.toute.js.
+3. Update user.controller.js
+
+In Contact.jsx: const res = await fetch(`/api/user/${listing.userRef}`);
+`/api/user` is from api -> index.js: app.use('/api/user', userRouter);
+Then `/${listing.userRef}` is from api -> routes -> user.route.js: router.get('/:id', verifyToken, getUser);
