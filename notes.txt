@@ -334,3 +334,14 @@ navigate(`/listing/${data._id}`);
 Before, downloading listing, upate userRef in Insomnia create listing link
 
 [2/3/25] Complete show user listings functionality
+
+[2/8/25] Complete delete user listing functionality
+Updated listing.routes.js
+Updated listing.controller.js
+Updated Profile.jsx:
+//Use "prev" for setUserListings from the useState
+//Use userListings as parameter
+setUserListings((prev) => prev.filter((userListings) => userListings._id !== listingId));
+
+Insomnia:
+DELETE: localhost:3000/api/listing/delete/:id
