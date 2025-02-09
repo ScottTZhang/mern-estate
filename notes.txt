@@ -345,3 +345,16 @@ setUserListings((prev) => prev.filter((userListings) => userListings._id !== lis
 
 Insomnia:
 DELETE: localhost:3000/api/listing/delete/:id
+
+[2/8/25] Create update listing API route
+Update listing.route.js
+Update listing.controller.js
+{new: true} because we need to get the newly updated listing; otherwise you will the previous one, not updated one.
+
+Insomnia:
+POST: localhost:3000/api/listing/update/:id
+BODY:choose JSON
+{
+  "name": "test222222"
+  ...
+}
