@@ -8,6 +8,7 @@ import Header from './components/header';
 import PrivateRoute from './components/PrivateRoute';
 import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
+import Listing from './pages/Listing';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/create-listing' element={<CreateListing />}></Route>
           <Route path='/update-listing/:listingId' element={<UpdateListing />}></Route>
         </Route>
+        <Route path='/listing/:listingId' element={<Listing />}></Route>
       </Routes>
     </BrowserRouter>
   );

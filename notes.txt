@@ -373,3 +373,15 @@ useParams(), to have the id from the URL. To initialize, const params = useParam
 5. Update listing.route.js: router.get('/get/:id', getListing);
 6. Update listing.controller.js: const listing = await Listing.findById(req.params.id);
 (7. Test in Insomnia: GET:localhost:3000/api/listing/get/:id)
+
+[2/8/25] Add image slider to the listing page
+1. Create pages -> Listing.jsx
+2. Updated App.jsx
+3. Update Listing.jsx
+  useEffect(..., [params.listingId]), run useEffect each time listingId changes.
+4. Install package Swiper: npm i swiper (https://www.npmjs.com/package/swiper)
+  Must install in the client folder
+5. Import Swpier in Listing.jsx
+style={{ background: `url(${url}) center no-repeat`, backgroundSize: 'cover'}}
+url(...) is a function to use the ${url} as actual link.
+style={...} treats ... as js language. So the inner {} is like a js object.
