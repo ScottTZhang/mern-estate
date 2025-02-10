@@ -1,6 +1,7 @@
 import {FaSearch} from 'react-icons/fa';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
   //state.user comes from the userSlice.js name:'user'
@@ -8,6 +9,26 @@ export default function Header() {
   //The useSelector hook connects a component to the Redux store and returns a part of the state when given a function argument.
   //useSelector(state => state.user.user.currentUser) is a React-Redux hook that returns the user.user.currentUser part of the state
   //console.log(currentUser);
+  
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const urlParams = new URLSearchParams(window.location.search); //search area in current browser window
+    urlParams.set('searchTerm', searchTerm); //replace or add 'searchTerm' value
+    const searchQuery = urlParams.toString();
+    navigate(`/search?${searchQuery}`);
+  }
+
+  //add useEffect to update search area in header
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.search);
+    const searchTermFromUrl = urlParams.get('searchTerm');
+    if (searchTermFromUrl) {
+      setSearchTerm(searchTermFromUrl);
+    }
+  }, [location.search]);
   
   return (
     <header className='bg-slate-200 shadow-dm'>
@@ -18,9 +39,15 @@ export default function Header() {
         <span className='text-slate-700'>Estate</span>
       </h1>
       </Link>
-      <form className='bg-slate-100 p-2 rounded-lg flex items-center'>
-        <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-24 sm:w-48 md:w-64'></input>
-        <FaSearch className='text-slate-500'></FaSearch>
+      <form onSubmit={handleSubmit} className='bg-slate-100 p-2 rounded-lg flex items-center'>
+        <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-24 sm:w-48 md:w-64'
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        ></input>
+        <button>
+          <FaSearch className='text-slate-500'></FaSearch>
+        </button>
+        
       </form>
       <ul className='flex gap-4'>
       <Link to='/'>
