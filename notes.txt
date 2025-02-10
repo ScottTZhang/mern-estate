@@ -405,3 +405,11 @@ flex-wrap: to make the icon change line
 In Contact.jsx: const res = await fetch(`/api/user/${listing.userRef}`);
 `/api/user` is from api -> index.js: app.use('/api/user', userRouter);
 Then `/${listing.userRef}` is from api -> routes -> user.route.js: router.get('/:id', verifyToken, getUser);
+
+[2/9/25] Create search API route
+(create API, create page)
+1. Update listing.route.js.
+2. Update listing. controller.js.
+  req.param vs req.query
+3. Insomnia: GET:localhost:3000/api/listing/get
+localhost:3000/api/listing/get?... to add queries
