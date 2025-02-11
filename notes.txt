@@ -426,3 +426,8 @@ console.log(urlParams.get('sort')); // Output： "asc"
 urlParams.set('searchTerm', searchTerm);//如果 searchTerm 已经存在，它会被替换；如果不存在，它会被添加。
 
 location 是 window.location 的简写，在浏览器环境下，它默认引用 window.location，所以 location.search 和 window.location.search 通常是等价的。
+
+[2/10/25] Complete search page UI
+1. Create Search.jsx
+2. Update App.jsx
+3. Update Search.jsx
