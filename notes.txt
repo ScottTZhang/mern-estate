@@ -444,3 +444,14 @@ Example (2)
 const key = "name";
 const obj = { key: "John" };
 console.log(obj); // { key: "John" }, not { name: "John" }
+
+[02/17/25] Create the listing item component and show listings
+1. Create ListingItem.jsx
+2. Update Search.jsx.
+transition-scale
+overflow-hidden
+transition-shadow
+truncate
+w-full
+3. Install 'npm install -D @tailwindcss/line-clamp' in client folder. Restart the server: npm run dev.
+Use ine-clamp-2 in className to truncate to 2 lines
