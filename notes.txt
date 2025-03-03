@@ -455,3 +455,6 @@ truncate
 w-full
 3. Install 'npm install -D @tailwindcss/line-clamp' in client folder. Restart the server: npm run dev.
 Use ine-clamp-2 in className to truncate to 2 lines
+
+[3/2/25] Add show more listings functionality
+1. Updated Search.jsx
