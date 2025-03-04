@@ -466,3 +466,6 @@ max-width: var(--container-6xl); /* 72rem (1152px) */
 mx-auto: 
 margin-inline: auto;
 <Swiper navigation>: need to add "navigation" to make the images slide
+
+[3/4/25] Complete about page
+1. Update About.jsx
