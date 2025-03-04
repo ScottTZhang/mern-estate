@@ -458,3 +458,11 @@ Use ine-clamp-2 in className to truncate to 2 lines
 
 [3/2/25] Add show more listings functionality
 1. Updated Search.jsx
+
+[3/3/25] Complete home page
+1. Update Home.jsx
+max-w-6xl
+max-width: var(--container-6xl); /* 72rem (1152px) */
+mx-auto: 
+margin-inline: auto;
+<Swiper navigation>: need to add "navigation" to make the images slide
