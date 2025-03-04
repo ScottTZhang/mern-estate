@@ -5,6 +5,7 @@ import userRouter from './routes/user.route.js'; //becase router is a default ex
 import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js';
 import cookieParser from 'cookie-parser';
+import path from 'path';
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+  const __dirname = path.resolve();
 
 const app = express();
 
@@ -34,6 +37,12 @@ app.use('/api/auth', authRouter);
 //Now server can get information from the cookie
 
 app.use('/api/listing', listingRouter);
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
 
 //middleware:
 //next: go to the next middleware
