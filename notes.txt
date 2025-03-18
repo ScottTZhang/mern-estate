@@ -469,3 +469,8 @@ margin-inline: auto;
 
 [3/4/25] Complete about page
 1. Update About.jsx
+
+[3/18/25] Deploy to render
+index.js: 
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '/client/dist')));
