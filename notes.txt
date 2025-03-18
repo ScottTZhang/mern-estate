@@ -474,3 +474,24 @@ margin-inline: auto;
 index.js: 
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/client/dist')));
+
+render.com: + new web service
+Build Command: npm run build - "build": "npm install && npm install --prefix client && npm run build --prefix client"
+Start Command: npm start - "start": "node api/index.js",
+Environment Variables: from env.
+tailwind.config.js: //require('@tailwindcss/line-clamp'),
+Wait while "In progress"
+
+MongoDB MongooseServerSelectionError:
+Whitelist Render's Outbound IP Addresses:
+1. MongoDB Atlas requires you to specify which IP addresses are allowed to access your database. Render.com provides specific outbound IP addresses for your services. To find these IP addresses:
+  Navigate to your service in the Render dashboard.
+  Click on the "Connect" button at the top right corner.
+  Select the "Outbound" tab to view the list of IP addresses.
+2. Add these IP addresses to your MongoDB Atlas project's Network Access settings:
+  Log in to your MongoDB Atlas account.
+  Go to the "Network Access" section.
+  Click "Add IP Address" and enter each of Render's outbound IP addresses.
+
+Authenticate google signup:
+https://console.firebase.google.com/ -> project -> Authentication -> settings -> Authorized domains
